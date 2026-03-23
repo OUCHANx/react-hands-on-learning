@@ -4,13 +4,12 @@ const animals = ["Dog", "Cat", "Rat"];
 
 const Example = () => {
   const [filterval, setFilterval] = useState("");
-  console.log(animals.filter(animal => animal === "Dog"));
+  // console.log(animals.filter(animal => animal === "Dog"));
   return (
     <>
       <h3>配列のフィルター</h3>
   <input type="text" value ={filterval} onChange={(e)=>
     setFilterval(e.target.value)} />
-
       <ul>
         {animals
           .filter(animal => {

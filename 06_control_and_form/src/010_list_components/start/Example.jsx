@@ -2,13 +2,14 @@
 const animals = ["Dog", "Cat", "Rat"];
 
 const Example = () => {
-  const helloAnimals = animals.map((animal) =>
-  <li>Hello! {animal}</li>)
+  // const HelloAnimals = animals.map((animal) => <li>Hello!
+  // {animal}</li>)
   return (
     <>
-      <h3>配列の操作</h3>
       <ul>
-        {helloAnimals}
+      <h3>配列の操作</h3>
+      {animals.map((animal) => <li key={animal}>Hello!
+        {animal}</li>)}
       </ul>
     </>
   );

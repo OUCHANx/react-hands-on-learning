@@ -25,18 +25,25 @@ const Example = () => {
     <>
       <h3>練習問題</h3>
       <p>入力欄を設置して、入力値と名前が一致したもののみ表示する仕組みを作成してください。</p>
+      <input type ="text" value={filterval} onChange={
+        (e) => setFilterval(e.target.value)}
+        />
       <ul>
         {persons
         .filter(person => {
           const isMatch = person.name.indexOf(filterval) !== -1;
           return isMatch;
-        })
-        .map((person) => (
-          <li key={person.name}>
-            <Profile {...person} />
-          </li>
-        ))}
-      </ul>
+        })//trueのもののみmapに渡す
+        .map((person) => {
+          return <li key = {person.name}>{person.name}
+          {person.name === "Geo" && "★"}</li>
+          // if (person.name === "Geo"){
+          //   return <li key ={person.name}>{person.name}★</li>
+          // }else {
+          //   return <li key={person.name}>{person.name}</li>
+          // }
+        })}
+        </ul>
     </>
   );
 };

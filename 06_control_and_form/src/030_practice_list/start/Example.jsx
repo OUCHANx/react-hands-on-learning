@@ -4,7 +4,7 @@ const persons = [
   {
   name: "Geo",
   age: 18,
-  hobbies: "sports"
+  hobbies: ["sports"]
   },
   {
     name: "Tom",
