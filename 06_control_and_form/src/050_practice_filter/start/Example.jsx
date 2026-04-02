@@ -30,13 +30,12 @@ const Example = () => {
         />
       <ul>
         {persons
-        .filter(person => {
-          const isMatch = person.name.indexOf(filterval) !== -1;
-          return isMatch;
-        })//trueのもののみmapに渡す
+        .filter((person) => person.name.indexOf(filterval) !== -1)
+        //trueのもののみmapに渡す
         .map((person) => {
-          return <li key = {person.name}>{person.name}
-          {person.name === "Geo" && "★"}</li>
+          return <li key = {person.name}>
+            <Profile name={person.name} age={person.age} hobbies={person.hobbies} />
+          </li>
           // if (person.name === "Geo"){
           //   return <li key ={person.name}>{person.name}★</li>
           // }else {

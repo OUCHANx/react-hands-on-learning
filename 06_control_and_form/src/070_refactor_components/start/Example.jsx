@@ -6,10 +6,8 @@ const Example = () => {
 
   const [filterVal, setFilterVal] = useState("");
   const filteredAnimals = animals
-          .filter((animal) => {
-            const isMatch = animal.indexOf(filterVal) !== -1;
-            return isMatch;
-          });
+          .filter((animal) => animal.indexOf(filterVal) !== -1
+          );
   return (
     <>
       <AnimalList animals = {filteredAnimals}/>

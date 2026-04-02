@@ -8,19 +8,13 @@ const Example = () => {
   return (
     <>
       <h3>配列のフィルター</h3>
-  <input type="text" value ={filterval} onChange={(e)=>
+  <input type="text" value={filterval} onChange={(e)=>
     setFilterval(e.target.value)} />
       <ul>
         {animals
-          .filter(animal => {
-            const isMatch = animal.indexOf(filterval) !==
-            -1;
-            console.log(animal.indexOf(filterval));
-            return isMatch;
-          })
-          .map((animal) => (
-          <li key = {animal}>{animal}</li>
-        ))}
+        .filter((animal) => animal.indexOf(filterval) !== -1)
+        .map((animal) => (<li key = {animal}>{animal}</li>))
+        }
       </ul>
     </>
   );
@@ -31,3 +25,6 @@ export default Example;
 // 調べるためのメソッドです。存在する場合は、その文字列の最初の
 // 位置を返し、存在しない場合は-1を返します。上記のコードでは、
 // filtervalがanimalの中に含まれているかどうかを確認しています。
+//ーーーーーーーーーーーーーーーー
+//mapはどういうときに使いたいか
+//配列をjsxのリストに変換するときに使う
