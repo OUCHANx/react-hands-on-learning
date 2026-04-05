@@ -1,5 +1,4 @@
-import { useReducer } from "react";
-import { useState } from "react";
+import { useReducer,useState } from "react";
 
 const Example = () => {
   const [state, setState] = useState(0);
@@ -37,4 +36,3 @@ const Example = () => {
 };
 
 export default Example;
-//どこが間違ってる？＝＞ 
