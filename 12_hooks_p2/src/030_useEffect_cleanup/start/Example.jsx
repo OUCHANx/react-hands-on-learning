@@ -1,19 +1,36 @@
 import { useEffect, useState } from "react";
 
 const Example = () => {
+  const [isDisp, setIsDisp] = useState(true);
+
+  return (
+    <>
+    {isDisp && <Timer />}
+    <button onClick={() => setIsDisp(prev => !prev)}>
+      トグル
+    </button>
+    </>
+  )
+}
+const Timer = () => {
   const [time, setTime] = useState(0);
 
   useEffect(() => {
-    console.log('useEffect is called');
+    console.log('init');
     window.setInterval(() => {
       setTime(prev => prev + 1);
     }, 1000);
+    return () => {
+      console.log('end');
+    }
   }, [])
-  
+  //[]を書くことによって、Example
+  // コンポーネントが呼ばれた時にuseEffectの関数が呼ばれることになる
   useEffect(() => {
     document.title = 'counter:' + time;
     window.localStorage.setItem('time-key-end', time)
   }, [time]);
+  //timeが更新されるごとに、useEffectの関数が呼ばれることになる
 
   return (
     <h3>
@@ -21,6 +38,7 @@ const Example = () => {
       <span>秒経過</span>
     </h3>
     );
-};
+}
+
 
 export default Example;
